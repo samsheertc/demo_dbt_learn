@@ -1,0 +1,4 @@
+packages:
+  - git: https://gitlab.com/hcl55/dbt_music_data.git
+    revision: 93e9e5623e5955330b19c5379b38498a43c14206
+sha1_hash: a2e8140378a5c56d07130bdbd1df4f893bb32089

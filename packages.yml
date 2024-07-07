@@ -1,0 +1,4 @@
+packages:
+  - git: "https://gitlab.com/hcl55/dbt_music_data.git"
+    #revision: main
+	

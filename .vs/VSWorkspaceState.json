@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\dbt_packages\\my_new_project",
+    "\\dbt_packages\\my_new_project\\models",
+    "\\target\\compiled",
+    "\\target\\compiled\\demo_dbt",
+    "\\target\\compiled\\demo_dbt\\analyses",
+    "\\target\\compiled\\demo_dbt\\models",
+    "\\target\\compiled\\demo_dbt\\models\\public",
+    "\\target\\run",
+    "\\target\\run\\demo_dbt",
+    "\\target\\run\\demo_dbt\\models\\public"
+  ],
+  "PreviewInSolutionExplorer": false
+}

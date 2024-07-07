@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: example_my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        #description: "The primary key for this table"
+        description: '{{ doc("table_events") }}'
+        data_tests:
+          - unique
+          - not_null
+
+  - name: example_my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        tags:
+          - "test_tag"
+        #description: "The primary key for this table"
+        description: '{{ doc("table_events") }}'
+        data_tests:
+          - unique
+          - not_null
+
+  - name: example_team_details
+    description: "A list of new NBA teams that made the Playoffs in 2020"
+    columns:
+      - name: Team
+        #description: "The name of the team"
+        description: '{{ doc("team_details_team_name") }}'
+      - name: City
+        #description: "The home city of the team"
+        description: '{{ doc("team_details_city") }}'
+        tests:
+          - is_la_team
+      - name: State
+        #description: "The home state of the team"
+        description: '{{ doc("team_details_state") }}'
+
+
+sources:
+  - name: DEMO_DB
+    description: 'A DEMO DB for Snowflake'
+    database: demo_db
+    schema: public
+
+    freshness:
+      warn_after: {count: 1, period: hour }
+      error_after: {count: 1, period: hour }
+    loaded_at_field: "convert_timezone('America/Los_Angeles', 'UTC', created_at)"
+
+    tables:
+      - name: my_fav_source
+        description: 'Details about the sales in the store.'
+
+      - name: HIP_HOP_ARTISTS
+        description: 'Details about the sales in the store.' 
+
+
+  - name: SNOWFLAKE_SAMPLE_DATA
+    description: 'A sample database provided by Snowflake'
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF10TCL
+    tables:
+      - name: STORE_SALES
+        description: 'Details about the sales in the store.'
+      - name: ITEM
+        description: 'Details about the items in the store.'
+      - name: INVENTORY
+        description: 'Details about the inventory in the store.'
+      - name: STORE
+        description: 'Details about the store.'
+      - name: WEB_SALES
+        description: 'Details about the web sales in the store.'
+      - name: REASON
+        description: 'Reason'
